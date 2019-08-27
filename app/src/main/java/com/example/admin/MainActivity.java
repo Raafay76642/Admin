@@ -13,8 +13,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-  public void   openMap(View view)
+  public void   openSpaces(View view)
   {
-      startActivity( new Intent(this,DropLocation.class));
+      startActivity( new Intent(this,Spaces.class));
   }
 }
