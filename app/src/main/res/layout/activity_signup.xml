@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    >
+
+
+    <ImageView
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="@drawable/pa"
+        />
+
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="#fff"
+        android:hint="User Name/Email"
+        android:inputType="textEmailAddress"
+        android:textColorHint="#fff" />
+
+    <EditText
+        android:id="@+id/Mypassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="#fff"
+        android:hint="PASSWORD"
+        android:inputType="textPassword"
+        android:textColorHint="#fff" />
+
+    <EditText
+        android:id="@+id/MypasswordRe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="#fff"
+        android:hint="RE Enter PASSWORD"
+        android:inputType="textPassword"
+        android:textColorHint="#fff" />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:backgroundTint="#fff"
+        android:textColor="#000"
+        android:text="Sign up"
+        android:layout_marginTop="20dp"
+        android:onClick="registerUser"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <TextView
+            android:textColor="#fff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Allready have an account?"/>
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textColor="@color/colorfont"
+            android:onClick="opensignin"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>
