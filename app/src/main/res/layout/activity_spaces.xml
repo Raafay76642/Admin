@@ -55,6 +55,7 @@
                         android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/cfee"
                         android:backgroundTint="@color/colorfont" />
                 </LinearLayout>
                 <LinearLayout
@@ -74,6 +75,7 @@
                         android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/bfee"
                         android:backgroundTint="@color/colorfont" />
                 </LinearLayout>
                 <LinearLayout
@@ -93,6 +95,7 @@
                         android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/park_s"
                         android:backgroundTint="@color/colorfont" />
                 </LinearLayout>
 
@@ -108,6 +111,7 @@
                     android:fontFamily="monospace"
                     android:gravity="center"
                     android:text="Save"
+                    android:onClick="UpdateS"
                     android:textAllCaps="true"
                     android:textColor="@android:color/background_light"
                     android:textStyle="bold" />

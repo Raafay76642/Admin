@@ -10,10 +10,9 @@
 
 
     <ImageView
-        android:layout_marginTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:src="@drawable/pa"
+        android:src="@drawable/booking"
         />
 
 
@@ -57,8 +56,9 @@
         android:backgroundTint="#fff"
         android:textColor="#000"
         android:text="Sign up"
+        android:id="@+id/signup"
         android:layout_marginTop="20dp"
-        android:onClick="registerUser"
+        android:onClick="register"
         />
     <LinearLayout
         android:layout_width="match_parent"
@@ -77,7 +77,7 @@
             android:layout_height="wrap_content"
             android:text="Login"
             android:textColor="@color/colorfont"
-            android:onClick="opensignin"/>
+            android:onClick="openSignin"/>
     </LinearLayout>
 
 

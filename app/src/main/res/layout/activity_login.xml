@@ -10,10 +10,9 @@
 
 
     <ImageView
-        android:layout_marginTop="100dp"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:src="@drawable/pa"
+        android:layout_height="200dp"
+        android:src="@drawable/booking"
         />
 
 
@@ -46,9 +45,10 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:backgroundTint="#fff"
-        android:onClick="userLogin"
+        android:onClick="Signin"
         android:textColor="#000"
         android:text="login"
+        android:id="@+id/blogin"
         android:layout_marginTop="20dp"
         />
     <LinearLayout

@@ -24,6 +24,7 @@
                     android:background="@drawable/layoutgreenround"
                     android:layout_weight="1"
                     android:layout_margin="5dp"
+                    android:id="@+id/profile"
                     >
 
                     <ImageView
@@ -53,7 +54,7 @@
                     android:background="@drawable/layoutroundorange"
                     android:layout_weight="1"
                     android:layout_margin="5dp"
-                    android:onClick="openSpaces"
+                    android:id="@+id/spaces"
                    >
 
                     <ImageView
@@ -149,6 +150,7 @@
                 android:background="@drawable/layoutroundorange"
                 android:layout_margin="5dp"
                 android:layout_marginBottom="20dp"
+                android:onClick="Signout"
                 >
 
                 <ImageView
