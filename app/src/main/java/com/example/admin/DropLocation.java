@@ -134,6 +134,9 @@ public class DropLocation extends AppCompatActivity implements OnMapReadyCallbac
         editor.apply();
         Toast.makeText(DropLocation.this,"Location of Palza is Saved",
                 Toast.LENGTH_LONG).show();
+        Intent intent=new Intent(this,Profile.class);
+        startActivity(intent);
+        this.finish();
 
 
 

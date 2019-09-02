@@ -45,8 +45,6 @@ public class Profile extends AppCompatActivity {
         readData= getSharedPreferences("DataParkedAdmin", MODE_PRIVATE);
         mloclatitude = readData.getString("ParkingAdminlatitude","");
         mloclangitude = readData.getString("ParkingAdminlongitude","");
-        Toast.makeText(Profile.this,mloclangitude+mloclatitude,
-                Toast.LENGTH_LONG).show();
     }
     @Override
     public void onBackPressed() {
