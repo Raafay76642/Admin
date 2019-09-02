@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -40,13 +41,6 @@ public class Profile extends AppCompatActivity {
         firebaseAuth=FirebaseAuth.getInstance();
         mProgressBarsaving = new ProgressDialog(this);
         getData();
-
-        // Rafay Code
-        readData= getSharedPreferences("DataParkedAdmin", MODE_PRIVATE);
-        mloclatitude = readData.getString("ParkingAdminlatitude","");
-        mloclangitude = readData.getString("ParkingAdminlongitude","");
-        Toast.makeText(Profile.this,mloclangitude+mloclatitude,
-                Toast.LENGTH_LONG).show();
     }
     @Override
     public void onBackPressed() {
@@ -55,12 +49,18 @@ public class Profile extends AppCompatActivity {
         super.onBackPressed();
     }
     public void Update(View view){
+        //  Code
+        readData= getSharedPreferences("DataParkedAdmin", MODE_PRIVATE);
+        mloclatitude = readData.getString("ParkingAdminlatitude","");
+        mloclangitude = readData.getString("ParkingAdminlongitude","");
+        Toast.makeText(Profile.this,mloclangitude+mloclatitude,
+                Toast.LENGTH_LONG).show();
         mref= mref.child("Admin Parkings");
         mProgressBarsaving.setMessage("Saving. . .!");
         mProgressBarsaving.show();
         String Oname= oname.getText().toString();
         String Pname= pname.getText().toString();
-        String Mloc= mloc.getText().toString();
+        String Mloc= (mloclangitude+mloclangitude).toString();
         String Address=address.getText().toString();
         if(TextUtils.isEmpty(Oname))
         {
@@ -91,12 +91,22 @@ public class Profile extends AppCompatActivity {
 
         }
         id=FirebaseAuth.getInstance().getCurrentUser().getUid();
+//        Model_class model_class=new Model_class(Oname,Pname,mloclangitude,mloclatitude,Address,id);
+//        mref.child(id).setValue(model_class).addOnSuccessListener(new OnSuccessListener<Void>() {
+//            @Override
+//            public void onSuccess(Void aVoid) {
+//                mProgressBarsaving.dismiss();
+//                Toast.makeText(Profile.this, "Profile Updated", Toast.LENGTH_SHORT).show();
+//            }
+//        });
         mref.child(id).child("Owner_name").setValue(Oname);
         mref.child(id).child("P_name").setValue(Pname);
-        mref.child(id).child("Longi").setValue(Mloc);
+        mref.child(id).child("Longi").setValue(mloclangitude);
+        mref.child(id).child("Lati").setValue(mloclatitude);
         mref.child(id).child("Address").setValue(Address);
+        mref.child(id).child("Id").setValue(id);
         mProgressBarsaving.dismiss();
-
+        Toast.makeText(Profile.this, "Profile Updated", Toast.LENGTH_SHORT).show();
 
     }
     public void getData(){
@@ -111,8 +121,9 @@ public class Profile extends AppCompatActivity {
                 Model_class model_class= dataSnapshot.getValue(Model_class.class);
                  oname.setText(model_class.getOwner_name());
                 pname.setText(model_class.getP_name());
-                mloc.setText(model_class.getLati());
                 address.setText(model_class.getAddress());
+                mloclangitude=model_class.getLongi();
+                mloclatitude=model_class.getLati();
                 mProgressBarsaving.dismiss();
             }
             else {

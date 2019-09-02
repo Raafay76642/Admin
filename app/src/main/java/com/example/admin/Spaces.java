@@ -30,7 +30,6 @@ EditText Cfee,Bfee,Park_s;
         Cfee=findViewById(R.id.cfee);
         Bfee=findViewById(R.id.bfee);
         Park_s=findViewById(R.id.park_s);
-        mref= FirebaseDatabase.getInstance().getReference();
         firebaseAuth=FirebaseAuth.getInstance();
         mProgressBarsaving = new ProgressDialog(this);
         getdata();
@@ -44,7 +43,7 @@ EditText Cfee,Bfee,Park_s;
         super.onBackPressed();
     }
     public void UpdateS(View view){
-        mref= mref.child("Admin Parkings");
+        mref= FirebaseDatabase.getInstance().getReference("Admin Parkings");
         mProgressBarsaving.setMessage("Saving. . .!");
         mProgressBarsaving.show();
         String cfee= Cfee.getText().toString();
@@ -73,6 +72,7 @@ EditText Cfee,Bfee,Park_s;
         }
 
         id= FirebaseAuth.getInstance().getCurrentUser().getUid();
+        Model_class model_class=new Model_class(parkS,bfee,cfee);
         mref.child(id).child("C_fee").setValue(cfee);
         mref.child(id).child("B_fee").setValue(bfee);
         mref.child(id).child("P_space").setValue(parkS);
@@ -84,7 +84,7 @@ EditText Cfee,Bfee,Park_s;
     }
     public void getdata(){
 
-        mref= mref.child("Admin Parkings");
+        mref= FirebaseDatabase.getInstance().getReference("Admin Parkings");
         id= FirebaseAuth.getInstance().getCurrentUser().getUid();
         mProgressBarsaving.setMessage("Please Wait");
         mProgressBarsaving.show();
