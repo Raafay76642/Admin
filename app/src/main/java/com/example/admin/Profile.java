@@ -2,6 +2,7 @@ package com.example.admin;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,6 +24,9 @@ public class Profile extends AppCompatActivity {
     String id;
     private ProgressDialog mProgressBarsaving;
     EditText oname,pname,mloc,address;
+    String mloclangitude,mloclatitude;
+    SharedPreferences readData;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,13 @@ public class Profile extends AppCompatActivity {
         firebaseAuth=FirebaseAuth.getInstance();
         mProgressBarsaving = new ProgressDialog(this);
         getData();
+
+        // Rafay Code
+        readData= getSharedPreferences("DataParkedAdmin", MODE_PRIVATE);
+        mloclatitude = readData.getString("ParkingAdminlatitude","");
+        mloclangitude = readData.getString("ParkingAdminlongitude","");
+        Toast.makeText(Profile.this,mloclangitude+mloclatitude,
+                Toast.LENGTH_LONG).show();
     }
     @Override
     public void onBackPressed() {
@@ -114,6 +125,13 @@ public class Profile extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
+
         });
+    }
+    public void opendroplocation(View view)
+    {
+        Intent intent=new Intent(this,DropLocation.class);
+        startActivity(intent);
+
     }
 }
