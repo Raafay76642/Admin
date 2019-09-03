@@ -12,11 +12,18 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
-    LinearLayout profile,spaces;
+    LinearLayout profile,spaces,bookings;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        bookings=findViewById(R.id.bookings);
+        bookings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openbooking();
+            }
+        });
         profile=findViewById(R.id.profile);
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
   public void openprofile(){
       Intent intent=new Intent(this,Profile.class);
       startActivity(intent);
+  }
+  public void openbooking(){
+        Intent intent=new Intent(this,MyBookings.class);
+        startActivity(intent);
   }
     public void Signout(View view){
         firebaseAuth.signOut();
